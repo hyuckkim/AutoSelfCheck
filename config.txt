@@ -1,0 +1,4 @@
+https://eduro.ice.go.kr/hcheck/index.jsp
+/home/hyuck/chromedriver
+선인고등학교 홍길동 123456
+인하대학교사범대학부속중학교 임꺽정 789012
