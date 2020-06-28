@@ -18,7 +18,7 @@ def SearchSite(school, my, citizen):
     # url에 접근한다.
     if first != True:
         driver.execute_script('window.open("about:blank", "_blank");')
-        driver.switch_to_window(driver.window_handles[len(driver.window_headles) - 1])
+        driver.switch_to_window(driver.window_handles[-1])
     driver.get(site)
 
     #3초쯤 그냥 기다려 주자.
@@ -33,12 +33,12 @@ def SearchSite(school, my, citizen):
 
     while len(driver.window_handles) == 1:
         driver.implicitly_wait(1)
-    driver.switch_to_window(driver.window_handles[len(driver.window_headles) - 1])
+    driver.switch_to_window(driver.window_handles[-1])
     driver.find_element_by_xpath('//*[@id="schulNm"]').send_keys(school)
     driver.find_element_by_xpath('//*[@id="infoForm"]/div[1]/p/span[3]/button').click()
     driver.find_element_by_xpath('//*[@id="infoForm"]/div[2]/table/tbody/tr/td[1]/a').click()
 
-    driver.switch_to_window(driver.window_handles[len(driver.window_headles) - 1])
+    driver.switch_to_window(driver.window_handles[-1])
     driver.find_element_by_name('pName').send_keys(' ' + my)
     driver.find_element_by_name('frnoRidno').send_keys(citizen)
     driver.find_element_by_xpath('//*[@id="btnConfirm"]').click()
