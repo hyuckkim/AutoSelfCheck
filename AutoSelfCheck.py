@@ -62,14 +62,21 @@ configfile = open(path,'r')
 originalconfigs = [RemoveEnter(x) for x in configfile.readlines()]
 
 site = originalconfigs[0]
-chromedriver = originalconfigs[1]
+webroute = originalconfigs[1]
+browser = originalconfigs[2]
 Students = []
-for x in originalconfigs[2:]:
+for x in originalconfigs[3:]:
     y = x.split()
     Students.append(StudentInfo(schoolName = y[0], myName = y[1], citizenNum = y[2]))
 
-driver = webdriver.Chrome(chromedriver)
-
+if browser == "chrome":
+    driver = webdriver.Chrome(webroute)
+elif browser =="edge":
+    driver = webdriver.Edge(webroute)
+elif browser =="firefox":
+    driver = webdriver.Firefox(executable_path=webroute)
+elif browser =="safari":
+    driver = webdriver.Safari(webroute)
 first = True
 for x in Students:
     SearchSite(x.schoolName, x.myName, x.citizenNum)
