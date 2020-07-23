@@ -57,7 +57,7 @@ def RemoveEnter(str):
     if(str[-1] == '\n'):
         return str[:-1]
 
-path = os.path.join(MY_PATH, 'config.txt')
+path = os.path.join(MY_PATH, 'config.txt',encoding='UTF-8')
 configfile = open(path,'r')
 originalconfigs = [RemoveEnter(x) for x in configfile.readlines()]
 
