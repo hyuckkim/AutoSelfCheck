@@ -36,7 +36,11 @@ def SearchSite(school, my, citizen):
     driver.switch_to_window(driver.window_handles[-1])
     driver.find_element_by_xpath('//*[@id="schulNm"]').send_keys(school)
     driver.find_element_by_xpath('//*[@id="infoForm"]/div[1]/p/span[3]/button').click()
-    driver.find_element_by_xpath('//*[@id="infoForm"]/div[2]/table/tbody/tr/td[1]/a').click()
+    #학교 이름이 맞는지 확인하고 맞으면 클릭.
+    for x in driver.find_elements_by_xpath("/html/body/app-root/div/form/div[2]/table/tbody/tr/td[1]/a"):
+        if(x.text == school):
+            x.click()
+            break
 
     driver.switch_to_window(driver.window_handles[-1])
     driver.find_element_by_name('pName').send_keys(' ' + my)
