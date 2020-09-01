@@ -18,7 +18,7 @@ def SearchSite(school, my, citizen):
     # url에 접근한다.
     if first != True:
         driver.execute_script('window.open("about:blank", "_blank");')
-        driver.switch_to_window(driver.window_handles[-1])
+        driver.switch_to.window(driver.window_handles[-1])
     driver.get(site)
 
     #3초쯤 그냥 기다려 주자.
@@ -33,7 +33,7 @@ def SearchSite(school, my, citizen):
 
     while len(driver.window_handles) == 1:
         driver.implicitly_wait(1)
-    driver.switch_to_window(driver.window_handles[-1])
+    driver.switch_to.window(driver.window_handles[-1])
     driver.find_element_by_xpath('//*[@id="schulNm"]').send_keys(school)
     driver.find_element_by_xpath('//*[@id="infoForm"]/div[1]/p/span[3]/button').click()
     #학교 이름이 맞는지 확인하고 맞으면 클릭.
@@ -42,7 +42,7 @@ def SearchSite(school, my, citizen):
             x.click()
             break
 
-    driver.switch_to_window(driver.window_handles[-1])
+    driver.switch_to.window(driver.window_handles[-1])
     driver.find_element_by_name('pName').send_keys(' ' + my)
     driver.find_element_by_name('frnoRidno').send_keys(citizen)
     driver.find_element_by_xpath('//*[@id="btnConfirm"]').click()
