@@ -48,7 +48,7 @@ def SearchSite(school, my, citizen):
     driver.find_element_by_xpath('//*[@id="btnConfirm"]').click()
 
     #3초쯤 그냥 기다려 주자.
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
 
     driver.find_element_by_xpath('//*[@id="infoForm"]/div/div/table[1]/tbody/tr[2]/td/span/label[1]').click()
     driver.find_element_by_xpath('//*[@id="infoForm"]/div/div/table[2]/tbody/tr[2]/td/span/label[1]').click()
